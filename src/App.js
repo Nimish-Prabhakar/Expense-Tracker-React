@@ -1,18 +1,12 @@
-import {
-  Container,
-  Header,
-  Statistic,
-  Segment,
-  Grid,
-  Icon,
-  Form,
-  Button,
-} from 'semantic-ui-react';
+import { Container, Statistic, Segment, Grid, Icon } from 'semantic-ui-react';
+import MainHeader from './Components/MainHeader';
+import SaveOrCancelButton from './Components/SaveOrCancelButton';
+import InputForm from './Components/InputForm';
 
 function App() {
   return (
     <Container>
-      <Header as="h1">Budget</Header>
+      <MainHeader title="Expense Tracker" />
       <Statistic size="small">
         <Statistic.Label>Your Balance</Statistic.Label>
         <Statistic.Value>2,204</Statistic.Value>
@@ -39,7 +33,7 @@ function App() {
           </Grid.Row>
         </Grid>
       </Segment>
-      <Header as="h3">History</Header>
+      <MainHeader title="History" size="medium" style={{ marginTop: '30px' }} />
       <Segment color="red">
         <Grid columns={3} textAlign="right" divided>
           <Grid.Row>
@@ -88,29 +82,14 @@ function App() {
           </Grid.Row>
         </Grid>
       </Segment>
-      <Header as="h3">Add New Transaction</Header>
-      <Form unstackable>
-        <Form.Group>
-          <Form.Input
-            icon="tags"
-            width={12}
-            placeholder="Add An Item"
-            label="Description"
-          ></Form.Input>
-          <Form.Input
-            width={4}
-            label="Value"
-            placeholder="Add the Value"
-            icon="dollar"
-            iconPosition="left"
-          />
-        </Form.Group>
-        <Button.Group style={{ marginTop: '20px' }}>
-          <Button>Cancel</Button>
-          <Button.Or></Button.Or>
-          <Button primary>Ok</Button>
-        </Button.Group>
-      </Form>
+      <MainHeader
+        title="Add New Transaction"
+        size="medium"
+        style={{ marginTop: '30px' }}
+      />
+      <InputForm>
+        <SaveOrCancelButton />
+      </InputForm>
     </Container>
   );
 }
